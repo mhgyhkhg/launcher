@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     # Works on ubuntu-latest, macos-latest, and windows-latest
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
