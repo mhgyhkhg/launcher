@@ -19,7 +19,7 @@ jobs:
 
       - name: Initialize Configuration
         # This replaces the manual 'config out of range' setup on a new PC
-        run: bdep init -C ../build-dir cc config.cxx=g++
+        run:  bdep init -C @msvc cc config.cxx=cl
 
       - name: Build
         run: b
