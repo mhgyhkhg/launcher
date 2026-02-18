@@ -1,0 +1,39 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    # Works on ubuntu-latest, macos-latest, and windows-latest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup build2
+        uses: build2/setup-build2-github-action@v2
+        with:
+          # Optional: Specify a version (default is 'latest')
+          build2-version: 'latest'
+
+      - name: Initialize Configuration
+        # This replaces the manual 'config out of range' setup on a new PC
+        run: bdep init -C ../build-dir cc config.cxx=g++
+
+      - name: Build
+        run: b
+
+      - name: Test
+        run: b test
+      - name: Stage Portable Bundle
+        # Installs the exe and files into a fresh 'dist' folder
+        run: b install config.install.root=dist
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-project-bundle-${{ runner.os }}
+          path: dist/
+          # Optional: Keep for 30 days
+          retention-days: 30
