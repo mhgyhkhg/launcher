@@ -8,8 +8,8 @@ description-file: README.md
 url: https://github.com/iw4x/launcher
 email: wroy@proton.me
 #build-error-email: wroy@proton.me
-depends: * build2 >= 0.18.0-
-depends: * bpkg >= 0.18.0-
+depends: * build2 >= 0.17.0-
+depends: * bpkg >= 0.17.0-
 depends: * cli >= 1.2.0 ? ($config.launcher.develop)
 depends: * odb >= 2.5.0 ? ($config.launcher.develop)
 depends: { libboost-asio libboost-beast libboost-json libboost-filesystem libboost-process } >= 1.87.0
