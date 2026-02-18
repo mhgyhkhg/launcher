@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-          - name: Setup build2
+        
+      - name: Setup build2
         uses: build2/setup-build2-github-action@v2
         with:
           # Use 0.18.0 specifically
