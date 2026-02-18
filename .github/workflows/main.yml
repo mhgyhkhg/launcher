@@ -19,7 +19,7 @@ jobs:
           cache: true
       - name: Initialize Configuration
         # This replaces the manual 'config out of range' setup on a new PC
-        run: bdep init -C ../build-msvc @gcc --sys-config @host cc config.cxx=g++ --no-host-config
+        run: bdep init -C ../build-msvc @gcc cc config.cxx=g++ --no-host-config
 
 
       - name: Build
