@@ -11,12 +11,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup build2
+          - name: Setup build2
         uses: build2/setup-build2-github-action@v2
         with:
-          # Optional: Specify a version (default is 'latest')
-          build2-version: 'latest'
+          # Use 0.18.0 specifically
+          build2-version: '0.18.0'
+          # Tell the action to look in the 'stage' repository 
+          # where 0.18.0 is currently hosted
+          build2-repo: 'https://pkg.cppget.org'
           cache: true
+
       - name: Initialize Configuration
         # This replaces the manual 'config out of range' setup on a new PC
         run:  bdep init -C @msvc cc config.cxx=cl
