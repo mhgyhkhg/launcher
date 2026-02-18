@@ -16,7 +16,7 @@ jobs:
         with:
           # Optional: Specify a version (default is 'latest')
           build2-version: 'latest'
-
+          cache: true
       - name: Initialize Configuration
         # This replaces the manual 'config out of range' setup on a new PC
         run:  bdep init -C @msvc cc config.cxx=cl
