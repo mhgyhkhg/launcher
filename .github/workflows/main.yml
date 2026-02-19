@@ -17,9 +17,11 @@ jobs:
           # Optional: Specify a version (default is 'latest')
           build2-version: 'latest'
           cache: true
+      - name: cd
+        run: cd launcher
       - name: Initialize Configuration
         # This replaces the manual 'config out of range' setup on a new PC
-        run: bdep init -C ../build-msvc @gcc cc config.cxx=g++ --host-config
+        run: bdep init -C @gcc cc config.cxx=g++
 
 
       - name: Build
